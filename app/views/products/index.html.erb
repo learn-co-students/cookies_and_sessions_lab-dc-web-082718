@@ -1,0 +1,21 @@
+<h1>Cart stuff</h1>
+
+<h2> Add a product to your cart </h2>
+<!-- No model so form_for doesnt have a template  -->
+<%= form_tag ({controller: "products" , action: "add", method: "POST" }) do %>
+
+    <%= label_tag(:product, "Product:") %>
+    <%= text_field_tag :product %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= submit_tag "add to cart" %>
+
+<% end %>
+
+<br />
+<br />
+<h3> Cart items: </h3>
+<ul>
+<% cart.each do |item| %>
+    <li> <%= item %> </li>
+<% end %>
+</ul>
