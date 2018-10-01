@@ -1,0 +1,12 @@
+class ProductController < ApplicationController
+
+  def index
+
+  end
+
+  def add
+    @product = params[:product]
+    cart << @product
+    redirect_to "/"
+  end
+end
